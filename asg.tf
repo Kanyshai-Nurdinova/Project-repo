@@ -13,7 +13,7 @@ resource "aws_autoscaling_group" "bar" {
   min_size           = var.min_size
 
   launch_template {
-    id      = aws_launch_template.foobar.id
+    id      = "ami-0604f27d956d83a4d"
     version = "$Latest"
     
   }
