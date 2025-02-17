@@ -5,7 +5,7 @@ resource "aws_launch_template" "foobar" {
 }
 
 resource "aws_autoscaling_group" "bar" {
-  vpc_zone_identifier = var.subnets
+  vpc_zone_identifier = var.public_subnets
   desired_capacity   = var.desired_capacity
   max_size           = var.max_size
   min_size           = var.min_size
@@ -20,7 +20,7 @@ resource "aws_autoscaling_group" "bar" {
 
 resource "aws_elb" "bar" {
   name               = "foobar-terraform-elbs"
-  subnets  = var.public_subnets
+  subnets  = var.public_subnets[0]
   listener {
     instance_port     = 80
     instance_protocol = "http"
