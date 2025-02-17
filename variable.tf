@@ -78,3 +78,9 @@ variable "min_size" {
   default     = "1"
 }
 
+variable "subnets" {
+  type = list 
+  default = [var.public_subnet1, var.public_subnet2 ]
+  description = "Please provide list of subnets"
+}
+
