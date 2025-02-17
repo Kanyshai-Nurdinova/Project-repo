@@ -22,9 +22,9 @@ resource "aws_autoscaling_group" "bar" {
 
 resource "aws_elb" "bar" {
   name     = "foobar-terraform-elbs"
-  subnets  = var.public_subnet1,
+  subnets  = [ var.public_subnet1,
     var.public_subnet2,
-    var.public_subnet3,
+    var.public_subnet3]
   listener {
     instance_port     = 80
     instance_protocol = "http"
