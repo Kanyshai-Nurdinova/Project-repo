@@ -29,9 +29,52 @@ variable "public_subnet3" {
 }
 
 
-
-
-
 data "aws_availability_zones" "available" {
   state = "available"
 }
+
+//ASG
+
+variable "tags" {
+  description = "Please provide a tag for resources"
+  type        = map(any)
+  default     = {
+    Team        = "DevOps"
+    Environment = "Dev"
+  }
+}
+variable "name_prefix" {
+  description = "Provide a value"
+  type        = string
+  default     = "foobar"
+}
+variable "image_id" {
+  description = "Provide a value"
+  type        = string
+  default     = "ami-0022f774911c1d690"
+}
+
+variable "instance_type" {
+  description = "Provide a value"
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "desired_capacity" {
+  description = "Provide a value"
+  type        = string
+  default     = "1"
+}
+
+variable "max_size" {
+  description = "Provide a value"
+  type        = string
+  default     = "3"
+}
+
+variable "min_size" {
+  description = "Provide a value"
+  type        = string
+  default     = "1"
+}
+
