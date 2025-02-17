@@ -5,7 +5,7 @@ resource "aws_launch_template" "foobar" {
 }
 
 resource "aws_autoscaling_group" "bar" {
-  availability_zones = data.aws_availability_zones.available.names[0]
+  availability_zones = "us-east-2a"
   desired_capacity   = var.desired_capacity
   max_size           = var.max_size
   min_size           = var.min_size
@@ -20,7 +20,7 @@ resource "aws_autoscaling_group" "bar" {
 
 resource "aws_elb" "bar" {
   name     = "foobar-terraform-elbs"
-  subnets  = var.public_subnet1
+  subnets  = "10.0.101.0/24"
   listener {
     instance_port     = 80
     instance_protocol = "http"
